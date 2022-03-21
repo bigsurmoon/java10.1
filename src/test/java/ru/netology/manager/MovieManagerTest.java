@@ -66,16 +66,4 @@ class MovieManagerTest {
         Items[] expected = new Items[]{ninth, eights, seventh, sixth};
         assertArrayEquals(expected, actual);
     }
-
-    @Test
-    public void shouldGetResultLessThanZero (){
-        MovieManager manager = new MovieManager(-5);
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
-
-        Items[] actual = manager.getLastMovie();
-        Items[] expected = new Items[] {};
-        assertArrayEquals(expected, actual);
-    }
 }

@@ -5,16 +5,13 @@ import ru.netology.domain.Items;
 public class MovieManager {
 
     private Items[] movies = new Items[0];
-    private int resultLength = 10;
+    private int moviesCount = 10;
 
     public MovieManager() {
     }
 
-    public MovieManager(int resultLength) {
-        if (resultLength < 0) {
-            resultLength = 0;
-        }
-        this.resultLength = resultLength;
+    public MovieManager(int moviesCount) {
+        this.moviesCount = moviesCount;
     }
 
     public void add(Items movie) {
@@ -36,8 +33,12 @@ public class MovieManager {
     }
 
     public Items[] getLastMovie() {
-        if (movies.length < resultLength) {
+        int resultLength;
+        if (movies.length < moviesCount) {
             resultLength = movies.length;
+        }
+        else {
+            resultLength = moviesCount;
         }
         Items[] result = new Items[resultLength];
         for (int i = 0; i < resultLength; i++) {
